@@ -22,8 +22,10 @@ def versioned_symbols_policy(versioned_symbols: Dict[str, Set[str]]) -> int:
         return policy_satisfied
 
     required_vers = {}  # type: Dict[str, Set[str]]
+    print('DEBUG: versioned_symbols =', versioned_symbols)
     for symbols in versioned_symbols.values():
         for symbol in symbols:
+            print('DEBUG: symbol =', symbol)
             sym_name, _ = symbol.split("_", 2)
             required_vers.setdefault(sym_name, set()).add(symbol)
     matching_policies = []  # type: List[int]
